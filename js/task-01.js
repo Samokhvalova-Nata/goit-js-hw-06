@@ -1,22 +1,23 @@
 // кількість категорій в ul#categories
-
-// const itemEl = document.querySelectorAll('.item');
-// console.log('Number of categories:' , itemEl.length);
-
-// const titleEl = document.querySelectorAll('h2');
-// console.log('Category:' , titleEl[0].textContent);
-
-// const elementsEl = document.querySelectorAll('.item li');
-// console.log(elementsEl);
-
-const categoriesEl = document.querySelector('#categories');
-// console.log(categoriesEl);
-const itemEl = categoriesEl.children;
+const itemEl = document.querySelectorAll('.item');
 console.log('Number of categories:' , itemEl.length);
 
-const titleEl = document.querySelectorAll('h2');
-console.log('Category:' , titleEl[0].textContent);
+// текст заголовку елемента і кількість елементів в категорії
 
-const innerUlEl = itemEl[0].lastElementChild;
-const innerLiEl = innerUlEl.querySelectorAll('li');
-console.log('Elements: ' , innerLiEl.length);
+// -----------  Варіант 1-----------
+// itemEl.forEach(element => {
+//     const titleEl = element.querySelector('h2');
+//     const innerLiEl = element.querySelectorAll('li');
+
+//     console.log('Category:' , titleEl.textContent);
+//     console.log('Elements:' , innerLiEl.length);
+// });
+
+// -----------  Варіант 2-----------
+itemEl.forEach(element => {
+    const titleEl = element.firstElementChild;
+    const innerLiEl = element.lastElementChild.children;
+
+    console.log('Category:' , titleEl.textContent);
+    console.log('Elements:' , innerLiEl.length);
+});
