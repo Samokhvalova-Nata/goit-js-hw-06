@@ -17,12 +17,15 @@ function createBoxes(amount) {
   let height = 20;
 
   for (let i = 1; i <= amount; i += 1) {
-    refs.container.insertAdjacentHTML("afterbegin", '<div id="boxes-item"></div>');
+    refs.container.insertAdjacentHTML("afterbegin", `<div id="boxes-item"></div>`);
     const boxEl = document.querySelector('#boxes-item');
 
     boxEl.style.width = `${width += 10}px`;
     boxEl.style.height = `${height += 10}px`;
     boxEl.style.backgroundColor = getRandomHexColor();
+
+    refs.container.style.display = 'flex';
+    refs.container.style.flexDirection = 'column-reverse';
   };
 };
 
@@ -32,4 +35,5 @@ function createBoxes(amount) {
 
   function onDestroyBtn(event) {
     refs.container.innerHTML = '';
+    refs.input.value = '';
   }

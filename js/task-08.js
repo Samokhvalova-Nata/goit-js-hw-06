@@ -13,18 +13,14 @@ function onSubmitForm (event) {
         alert('Всі поля повинні бути заповнені');
     } 
 
-    const formData = new FormData(event.currentTarget);
-    console.log(formData);
-    event.currentTarget.reset();
-
-    formData.forEach((value, name) => {
-    console.log('name', name);
-    console.log('value', value);
-    });
-
-
+    if (email !== '' && password !== '') {
+        const formData = new FormData(event.currentTarget);
+        console.log(formData);
+        event.currentTarget.reset();
     
-    // const formData = {
-    //         email, password,
-    //     };
+        formData.forEach((value, name) => {
+        console.log('name', name);
+        console.log('value', value);
+        });
+    }
 }
